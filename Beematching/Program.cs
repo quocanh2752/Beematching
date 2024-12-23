@@ -12,8 +12,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
                     options.AccessDeniedPath = "/Home/Privacy"; // Trang khi không có quyền truy cập
                 });
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<BeematchingContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnect")));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

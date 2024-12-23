@@ -35,15 +35,7 @@ public partial class BeematchingContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-<<<<<<< Updated upstream
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-H63GAKS\\TUANCONG;Initial Catalog=beematching;Integrated Security=True;Trust Server Certificate=True");
-=======
-<<<<<<< HEAD
         => optionsBuilder.UseSqlServer("Data Source=TUNG\\SQLEXPRESS;Initial Catalog=beematching;Integrated Security=True;Trust Server Certificate=True");
-=======
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-H63GAKS\\TUANCONG;Initial Catalog=beematching;Integrated Security=True;Trust Server Certificate=True");
->>>>>>> 4010d6039e0caa7a4ebb5912fa2ddd767069b2ef
->>>>>>> Stashed changes
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
