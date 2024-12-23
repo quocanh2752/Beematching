@@ -1,4 +1,4 @@
-using Beematching.Model;
+﻿using Beematching.Model;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -23,6 +23,7 @@ namespace Beematching.Controllers
             return View();
         }
 
-        
+        // tuấn đây
+
     }
 }
