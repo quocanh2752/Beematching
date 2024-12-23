@@ -1,8 +1,19 @@
+﻿using Beematching.Model;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Home/Dangnhap"; // Trang đăng nhập
+                    options.LogoutPath = "/Home/Dangxuat"; // Trang đăng xuất
+                    options.AccessDeniedPath = "/Home/Privacy"; // Trang khi không có quyền truy cập
+                });
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<BeematchingContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnect")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -15,7 +26,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseAuthentication();
 app.UseRouting();
 
 app.UseAuthorization();
