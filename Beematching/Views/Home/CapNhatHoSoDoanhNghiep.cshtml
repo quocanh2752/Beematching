@@ -1,0 +1,32 @@
+﻿@model Doanhnghiep
+
+<form asp-action="CapNhatHoSoDoanhNghiep" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+    <div>
+        <label for="TenDoanhNghiep">Tên Doanh Nghiệp</label>
+        <input type="text" id="TenDoanhNghiep" name="TenDoanhNghiep" value="@Model.TenDoanhNghiep" required />
+    </div>
+
+    <div>
+        <label for="DiaChi">Địa Chỉ</label>
+        <input type="text" id="DiaChi" name="DiaChi" value="@Model.DiaChi" required />
+    </div>
+
+    <div>
+        <label for="IdTinhThanh">Tỉnh Thành</label>
+        @Html.DropDownListFor(
+                 model => model.IdTinhThanh,
+                 ViewBag.TinhThanhList as IEnumerable<SelectListItem>,
+                 "-- Chọn Tỉnh Thành --",
+                 new { @class = "form-control" }
+                 )
+    </div>
+
+    <div>
+        <label for="AnhDaiDien">Ảnh Đại Diện</label>
+        <input type="file" id="AnhDaiDien" name="anhDaiDien" />
+    </div>
+
+    <button type="submit">Cập Nhật</button>
+</form>

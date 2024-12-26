@@ -1,0 +1,47 @@
+﻿@model Doanhnghiep
+
+<div class="container mt-4">
+    <h2>Thông Tin Hồ Sơ Doanh Nghiệp</h2>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Ảnh Đại Diện</h4>
+            @if (!string.IsNullOrEmpty(Model.AnhDaiDien))
+            {
+                <img src="@Url.Content(Model.AnhDaiDien)" alt="Ảnh đại diện doanh nghiệp" class="img-fluid" />
+            }
+            else
+            {
+                <p>Chưa có ảnh đại diện.</p>
+            }
+        </div>
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Tên Doanh Nghiệp</th>
+                        <td>@Model.TenDoanhNghiep</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>@Model.Email</td>
+                    </tr>
+                  
+                    <tr>
+                        <th>Tỉnh Thành</th>
+                        <td>@Model.IdTinhThanhNavigation.TenTinhThanh</td>
+                    </tr>
+                    <tr>
+                        <th>Địa Chỉ</th>
+                        <td>@Model.DiaChi</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <a href="@Url.Action("CapNhatHoSoDoanhNghiep", "Doanhnghiep", new { id = Model.Id })" class="btn btn-primary">
+        Cập Nhật Thông Tin
+    </a>
+</div>

@@ -1,0 +1,23 @@
+﻿@model List<Beematching.Model.Ungtuyen>
+
+<h2>Các công việc bạn đã ứng tuyển</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên công việc</th>
+            <th>Ngày ứng tuyển</th>
+            <th>Trạng thái</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdCongViecNavigation.TenCongViec</td>
+                <td>@item.NgayUngTuyen?.ToString("dd/MM/yyyy")</td>
+                <td>@item.TrangThai</td>
+            </tr>
+        }
+    </tbody>
+</table>

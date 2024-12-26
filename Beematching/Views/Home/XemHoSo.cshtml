@@ -1,0 +1,98 @@
+﻿@model Nguoixinviec
+
+@{
+    ViewData["Title"] = "Xem Hồ Sơ";
+}
+<style>
+    .profile-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+
+    .profile-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .profile-header h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+    .table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+        .table th,
+        .table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f1f1f1;
+            text-align: left;
+        }
+
+    .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+<h2>Thông Tin Hồ Sơ</h2>
+
+<div class="profile-container">
+    <div class="profile-header">
+        <h3>@Model.IdNguoiDungNavigation.HoTen</h3>
+        <img src="@Model.AnhDaiDien" alt="Ảnh đại diện" style="width: 150px; height: 150px; object-fit: cover;" />
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>Email:</th>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <th>Số Điện Thoại:</th>
+            <td>@Model.SoDienThoai</td>
+        </tr>
+        <tr>
+            <th>Ngày Sinh:</th>
+            <td>@Model.NgaySinh?.ToString("dd/MM/yyyy")</td>
+        </tr>
+        <tr>
+            <th>Giới Tính:</th>
+            <td>@Model.GioiTinh</td>
+        </tr>
+    </table>
+
+    <div>
+        <h4>Ảnh Hồ Sơ:</h4>
+        @if (!string.IsNullOrEmpty(Model.AnhHoSo))
+        {
+            <img src="@Model.AnhHoSo" alt="Ảnh Hồ Sơ" style="width: 100%; max-width: 600px;" />
+        }
+        else
+        {
+            <p>Chưa có ảnh hồ sơ.</p>
+        }
+    </div>
+
+    <a href="~/Home/CapNhatHoSo" class="btn btn-primary">Cập Nhật Hồ Sơ</a>
+</div>
